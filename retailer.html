@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Retailers page</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Retail Store Management</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/retailer}">Retailer
+						Store</a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<h1>List of Retailer</h1>
+		</div>
+
+		<div class="row"></div>
+		<div class="col-lg-3">
+			<a th:href="@{/retailer/new}" class="btn btn-primary btn-sm mb-3">
+				Add Retailer</a> <a th:href="@{/customer}" class="btn btn-danger">Customer
+				View</a> <a th:href="@{/products}" class="btn btn-danger">Products
+				View</a>
+			<!-- <a th:href="@{/paymentlist}" class="btn btn-primary btn-sm mb-3">Payment</a> -->
+
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Retailer Name</th>
+					<th>Retailer Email</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="retailer: ${retailer}">
+					<td th:text="${retailer.retailer_name}"></td>
+					<td th:text="${retailer.email}"></td>
+					<td><a
+						th:href="@{/retailer/edit/{id} (id=${retailer.retailer_id})}"
+						class="btn btn-primary">Update</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Page</title>
+<style>
+body  { 
+   background-image: url('/image/customer.jpg');
+   background-repeat: no-repeat;
+  background-size: 100%;
+   } 
+</style>
+
+</head>
+<body>
+	<center><p th:text="'Welcome, '+${userDetails.name}+ '!' " style="font-size:40px;"/></center>
+	
+
+
+	<!-- <b style="color: white">Welcome To Customer</b> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{/customer}"> <input type="submit"
+		class="btn btn-info" value="Customer Details" /></a>
+	<br>
+	<br>
+	<br>
+ -->
+
+	<!--  <a th:href="@{/productToCart/{id} (id=${products.products_id})}" class= "btn btn-primary" >Purchase </a> -->
+	<i style="color: white"> Products</i> &nbsp;&nbsp;&nbsp;
+
+	<a th:href="@{/products/{id} (id=${userDetails.id})}"> <input
+		type="submit" value="Products Details" /></a>
+	<br>
+	<br>
+	<br>
+
+	<!-- logout -->
+	<form th:action="@{/logout}" method="GET">
+		
+			<i><input type="submit" value="LogOut" /></i>
+	</form>
+
+
+</body>
+</html>

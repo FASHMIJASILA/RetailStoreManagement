@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Welcome to supplier page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<style>
+body {
+	background-image: url('/image/supplier.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+</style>
+
+</head>
+<body>
+	<center>
+		<p th:text="'Welcome, '+${userDetails.name}+ '!' "
+			style="font-size: 40px;" />
+	</center>
+
+	<!-- <b style="color: white">Welcome To Supplier</b> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{/supplier}"> <input type="submit"
+		class="btn btn-info" value="Supplier Details" /></a>
+	<br>
+	<br>
+	<br> -->
+
+
+	<i style="color: white">Supplier</i> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{supplierProductList}"> <input type="submit"
+		class="btn btn-info" value="Products Details" /></a>
+	<br>
+	<br>
+	<br>
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<style>
+body {
+	background-image: url('/image/retailer-home.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+</style>
+
+
+</head>
+<body>
+	<center>
+		<i><h1>WELCOME TO RETAILER PAGE</h1></i>
+	</center>
+	<br>
+
+	<center>
+		<p th:text="'Welcome, '+${userDetails.name}+ '!' " />
+	</center>
+	</br>
+
+
+	<!-- <b style="color: white">Welcome To Retailer</b> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{/retailer}"> <input type="submit"
+		class="btn btn-info" value="Retailer Details" /></a>
+	<br>
+	<br>
+	<br> -->
+
+
+	<i style="color: blue">Customer</i> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{/customer}"> <input type="submit"
+		class="btn btn-info" value="Customer Details" />
+		</style></a>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<i style="color: blue">Supplier</i> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{/supplier}"> <input type="submit"
+		class="btn btn-info" value="Supplier Details" />
+		</style></a>
+	<br>
+	<br>
+	<br>
+
+
+
+	<i style="color: blue">Products</i> &nbsp;&nbsp;&nbsp;
+	<a th:href="@{/retailerProductsList}"> <input type="submit"
+		class="btn btn-info" value="Products Details" />
+		</style></a>
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<!-- logout -->
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout" />
+		</style>
+	</form>
+	</br>
+
+</body>
+</html>

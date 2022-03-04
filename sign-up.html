@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Design by foolishdeveloper.com -->
+<title>Login Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+	rel="stylesheet">
+<!--Stylesheet-->
+<style media="screen">
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: url('/image/sign.jpg');
+	background-position: right;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+}
+
+form {
+	height: 500px;
+	width: 350px;
+	background-color: rgba(177, 176, 176, 0.13);
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 550%;
+	left: -2%;
+	border-radius: 10px;
+	backdrop-filter: blur(5px);
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+	padding: 20px 10px;
+}
+
+form * {
+	font-family: 'Poppins', sans-serif;
+	color: #000;
+	letter-spacing: 0.5px;
+	outline: none;
+	border: none;
+}
+
+form h3 {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: bottom;
+}
+
+label {
+	display: block;
+	margin-top: 10px;
+	font-size: 15px;
+	font-weight: 55;
+}
+
+input {
+	display: block;
+	height: 2px;
+	width: 100%;
+	background-color: #fff;
+	border-radius: 3px;
+	padding: 0 10px;
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+::placeholder {
+	color: grey;
+}
+
+.button {
+	margin-top: 20px;
+	width: 40%;
+	background-color: #ffffff;
+	color: #080710;
+	text-align: bottom;
+	font-size: 18px;
+	font-weight: 300;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 50px;
+}
+
+.button:hover {
+	background: grey;
+	color: #ffffff;
+}
+
+.social {
+	margin-top: 20px;
+}
+
+.social a {
+	border-radius: 3px;
+	padding: 10px 20px;
+	background-color: rgba(255, 255, 255, 0.27);
+	text-align: right;
+	margin-left: 160px;
+	text-decoration: none;
+}
+
+.social a:hover {
+	background-color: rgba(56, 55, 55, 0.47);
+	cursor: pointer;
+	color: white;
+}
+</style>
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggele="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">HOME</a> <a
+					class="navbar-brand" href="#" th:href="@{/}">LogOut</a>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+
+
+
+				<h1>SignUp</h1>
+
+				<form th:action="@{/add}" th:object="${user}" method="post">
+
+					<!-- name: <input type="text" th:field="*{name}" name="name">
+ -->
+					<div class="form-group">
+						<label class="control-label" for="name"> Name</label> <input
+							id="name" class="form-control" th:field="*{name}" required
+							autofocus="autofocus" />
+					</div>
+
+					<!-- password:<input type="password"  th:field="*{password}" name="password"/>
+ -->
+					<div class="form-group">
+						<label class="control-label" for="password"> Password</label> <input
+							id="password" class="form-control" th:field="*{password}"
+							required autofocus="autofocus" />
+					</div>
+
+					<!-- role:<input type="role"  th:field="*{role}" name="role"/>
+ -->
+					<div class="form-group">
+						<label class="control-label" for="role"> Role</label> <input
+							id="role" class="form-control" th:field="*{role}" required
+							autofocus="autofocus" />
+					</div>
+					<!-- <input type="Submit" />
+ -->
+					<div class="form-group">
+
+						<button type="Submit" class="btn btn-success">Submit</button>
+						<span>Already signUp? <a href="/" th:href="@{/sign-in}">Signin
+								here</a></span>
+
+						<div th:if="${param.success}">
+							<div class="alert alert-info">You've successfully signUp to
+								our app!</div>
+						</div>
+
+					</div>
+					<!-- <input type="reset" /> -->
+					<button type="reset" class="btn btn-success">Reset</button>
+
+					<form th:action="@{/logout}" method="get"></form>
+
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

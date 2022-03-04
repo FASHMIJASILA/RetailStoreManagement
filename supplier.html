@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Supplier Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<style>
+body {
+	background-image: url('/image/example4.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+</style>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#"></a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggele="collapse" data-target="#navbar"
+						aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+
+					<form th:action="@{/logout}" method="GET">
+						<input type="submit" value="Logout" />
+					</form>
+				</div>
+			</div>
+		</nav>
+
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/supplier}">LIST
+						OF SUPPLIERS</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+
+			<div class="row"></div>
+			<div class="col-lg-3">
+				<br> <br> <a th:href="@{/supplier/new}"
+					class="btn btn-primary btn-sm mb-3"> ADD SUPPLIER</a>
+			</div>
+			<br>
+			<table class="table table-striped table-bordered">
+				<thead class="table-dark">
+					<tr>
+						<th>Supplier Name</th>
+						<th>Supplier phone</th>
+						<th>Supplier Email</th>
+						<th>Actions</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="supplier: ${listsupplier}">
+						<td th:text="${supplier.supplier_name}"></td>
+						<td th:text="${supplier.supplier_phone}"></td>
+						<td th:text="${supplier.supplier_email}"></td>
+						<td><a
+							th:href="@{/supplier/edit/{id} (id=${supplier.supplier_id})}"
+							class="btn btn-primary">UPDATE</a> <a
+							th:href="@{/deleteSupplier/{id} (id=${supplier.supplier_id})}"
+							class="btn btn-danger">DELETE</a> </br></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+		</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Products Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#"> ADD PRODUCTS </a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<!--    <a class="nav-link" th:href="@{/products}">Products  Store</a> -->
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+	<br>
+	</br>
+	<div class="container">
+		<div class="row";>
+			<div
+				class="col=lg-6 col-md-6 col-sm-6 container justiy-content-center card ">
+				<marquee>
+					<h1 class=text-center>New Products</h1>
+				</marquee>
+				<div class="card-body">
+					<form th:action="@{/products}" th:object="${products}"
+						method="POST">
+
+						<div class="form-group">
+							<label>Products Name</label> <input
+								type:"text" 
+									name="products_name"
+								th:field="*{products_name}" class="form-control"
+								placeholder="Enter the Products Name" />
+						</div>
+
+						<div class="form-group">
+							<label>Products Type</label> <input
+								type:"text" 
+									name="products_type"
+								th:field="*{products_type}" class="form-control"
+								placeholder="Enter the products type" />
+						</div>
+
+						<div class="form-group">
+							<label>Products Quantity</label> <input
+								type:"text" 
+									name="products_quantity"
+								th:field="*{products_quantity}" class="form-control"
+								placeholder="Enter the Products Quantity" />
+						</div>
+
+						<div class="form-group">
+							<label>Products Price</label> <input
+								type:"text" 
+									name="products_price"
+								th:field="*{products_price}" class="form-control"
+								placeholder="Enter the Products Price" />
+						</div>
+
+						<br>
+						<div class="box-footer">
+							<center>
+								<input type="submit" value="Submit" />
+							</center>
+							</br>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
